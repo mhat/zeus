@@ -2,9 +2,9 @@
 
 #### 1. Socket
 
-The Worker is always started with an environment variable named `ZEUS_MASTER_FD`. The file descriptor at the given integer value is a socket to the Coordinator process.
+The Worker is always started with an environment variable named `ZEUS_COORDINATOR_FD`. The file descriptor at the given integer value is a socket to the Coordinator process.
 
-The Worker should open a UNIX Domain Socket using the `ZEUS_MASTER_FD` File Descriptor (`globalCoordinatorSock`).
+The Worker should open a UNIX Domain Socket using the `ZEUS_COORDINATOR_FD` File Descriptor (`globalCoordinatorSock`).
 
 The Worker opens a new UNIX datagram Socketpair (`local`, `remote`)
 

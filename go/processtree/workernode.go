@@ -193,7 +193,7 @@ func (s *WorkerNode) doUnbootedState(monitor *WorkerMonitor) string { // -> {SBo
 		parts := strings.Split(monitor.tree.ExecCommand, " ")
 		cmd := exec.Command(parts[0], parts[1:]...)
 		file := monitor.remoteCoordinatorFile
-		cmd.Env = append(os.Environ(), fmt.Sprintf("ZEUS_MASTER_FD=%d", file.Fd()))
+		cmd.Env = append(os.Environ(), fmt.Sprintf("ZEUS_COORDINATOR_FD=%d", file.Fd()))
 		cmd.ExtraFiles = []*os.File{file}
 		go s.babysitRootProcess(cmd)
 		s.L.Unlock()
